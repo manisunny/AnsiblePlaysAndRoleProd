@@ -1,0 +1,5 @@
+---
+# tasks file for sunny-package
+- include: rg.yml
+- include: network.yml
+- include: vm.yml

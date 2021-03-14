@@ -1,0 +1,4 @@
+- name: create az virtual machine
+  hosts: localhost
+  roles:
+          - azvm

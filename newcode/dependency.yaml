@@ -1,0 +1,8 @@
+---
+- hosts: slaver
+  tasks:
+    - name: Install prerequisites packages
+      yum:
+        name: unzip
+        state: present
+      become: yes

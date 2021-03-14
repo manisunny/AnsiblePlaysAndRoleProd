@@ -1,2 +1,2 @@
 [nginx]
-3.134.87.141
+ubuntu ansible_ssh_host=52.179.88.23 ansible_ssh_user=azadmin ansible_ssh_pass=Kubernetes@2021

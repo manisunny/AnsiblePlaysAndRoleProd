@@ -1,9 +1,8 @@
 ---
- - hosts: linuxhost
+ - hosts: all
    vars:
            motd_ubuntu: "Welcome Mr.Paresh, You have logged in to ubuntu machine"
            motd_RHEL: "Welcome Mr.Paresh, You have logged in to RedHat Linux"
-           motd_CentOS: "Welcome Mr.Paresh, You have logged in to RedHat CentOS"
    tasks:
            - name: configuring motd for ubuntu
              copy:
@@ -17,9 +16,3 @@
                      dest: /etc/motd
              become: yes
              when: ansible_distribution == "RedHat"
-           - name: Configure motd for CentOS
-             copy:
-                     content: "{{motd_CentOS}}"
-                     dest: /etc/motd
-             become: yes
-             when: ansible_distribution == "CentOS"

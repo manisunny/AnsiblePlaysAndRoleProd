@@ -1,0 +1,19 @@
+- name: Error handling playbook
+  hosts: all
+  tasks:
+          - name: Using blocks
+            block:
+                    - name: Installing git
+                      package: name=nginx state=present
+                      become: yes
+                    - name: copy config files
+                      copy: src=~/nginx.conf dest=/etc/nginx
+                      become: yes
+                    - name: check for service status
+                      service: name=nginx state=restarted
+            rescue:
+                    - name: Rolling back conf
+                      file: name=/etc/nginx/nginx.conf state=absent
+                      become: yes
+                    - name: restart nginx
+                      service: name=nginx state=restarted
